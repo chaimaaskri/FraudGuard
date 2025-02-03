@@ -17,6 +17,7 @@ This  work-in-progress project is a **Flask-based AI-powered fraud detection sys
 
 ## 📂 Project Structure
 fraud_detection_app/
+
 │── static/                 # Static files (CSS, JS, images)
 
 │── templates/              # HTML templates for UI (optional)
