@@ -18,10 +18,17 @@ This  work-in-progress project is a **Flask-based AI-powered fraud detection sys
 ## 📂 Project Structure
 fraud_detection_app/
 │── static/                 # Static files (CSS, JS, images)
+
 │── templates/              # HTML templates for UI (optional)
+
 │── models/                 # ML models for fraud detection
+
 │── app.py                  # Main Flask app
+
 │── fraud_model.py          # ML model implementation
+
 │── requirements.txt        # Dependencies
+
 │── README.md               # Project documentation
+
 
