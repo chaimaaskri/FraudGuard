@@ -6,7 +6,7 @@ import xgboost as xgb
 import joblib
 
 # Load the dataset
-data = pd.read_csv('data/your_dataset.csv')
+data = pd.read_csv('data/transaction_data.csv')
 
 # Display the first few rows of the dataset
 print(data.head())
