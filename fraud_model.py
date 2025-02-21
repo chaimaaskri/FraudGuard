@@ -7,8 +7,13 @@ import joblib
 
 # Load the dataset
 data = pd.read_csv('data/transaction_data.csv')
+# Convert 'TransactionTime' to datetime
+data['TransactionTime'] = pd.to_datetime(data['TransactionTime'], errors='coerce')
 
-# Display the first few rows of the dataset
+# Select only numeric columns for median filling
+numeric_cols = data.select_dtypes(include=['number']).columns
+data[numeric_cols] = data[numeric_cols].fillna(data[numeric_cols].median())
+
 print(data.head())
 
 # Preprocessing: Handling missing values (fill with median or drop rows/columns)
