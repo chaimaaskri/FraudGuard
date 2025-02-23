@@ -6,12 +6,13 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# Load and clean data
-data = load_data('data/transaction_data.csv')
-cleaned_data = clean_data(data)
+# Path to your transaction data file
+data_path = 'data/transaction_data.csv'
 
-# Train fraud detection model
-model = train_model(cleaned_data)
+# Load and clean the data, then train the model
+model = train_model(data_path)
+
+# You can now use your model to make predictions or save it
 
 @app.route('/predict-fraud', methods=['POST'])
 def predict_fraud():
