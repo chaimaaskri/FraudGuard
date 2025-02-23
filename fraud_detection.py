@@ -1,3 +1,5 @@
+# fraud_detection.py
+
 import pandas as pd
 from datetime import datetime
 
@@ -21,16 +23,20 @@ def load_and_clean_data(file_path):
     return data
 
 # Function to train the model
-def train_model(data):
-    # Clean the data using the cleaning function
-    cleaned_data = load_and_clean_data(data)
+def train_model(file_path):
+    # Load and clean the data
+    cleaned_data = load_and_clean_data(file_path)
 
     # Use the cleaned data to create features and labels for training
     X = cleaned_data[['CostPerItem', 'NumberOfItemsPurchased', 'DayOfWeek', 'Hour']]  # Features
-    y = cleaned_data['Country']  # This can be replaced with a fraud label if you have one
+    y = cleaned_data['Country']  # Example target variable, replace it with your fraud label if available
     
-    # Continue with model training (e.g., Random Forest, etc.)
-    # Add your model code here...
+    # Example model: Random Forest Classifier (You can replace with your desired model)
+    from sklearn.ensemble import RandomForestClassifier
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
 
+    # Train the model
+    model.fit(X, y)
+    
+    # Return the trained model
     return model
-
