@@ -3,24 +3,23 @@
 import pandas as pd
 from datetime import datetime
 
-# Function to load and clean the data
 def load_and_clean_data(file_path):
     # Load the data
     data = pd.read_csv(file_path)
-    
-    # Convert 'TransactionTime' to datetime format
+
+    # Remove timezone manually and convert to datetime
+    data['TransactionTime'] = data['TransactionTime'].str.replace(r' [A-Z]{3,4} ', ' ', regex=True)
     data['TransactionTime'] = pd.to_datetime(data['TransactionTime'], errors='coerce')
-    
-    # Extract day of the week (0=Monday, 1=Tuesday, ..., 6=Sunday)
+
+    # Extract features
     data['DayOfWeek'] = data['TransactionTime'].dt.dayofweek
-    
-    # Extract the hour from the transaction time (0-23)
     data['Hour'] = data['TransactionTime'].dt.hour
-    
+
     # Drop rows where 'TransactionTime' could not be parsed
     data = data.dropna(subset=['TransactionTime'])
-    
+
     return data
+
 
 # Function to train the model
 def train_model(file_path):
