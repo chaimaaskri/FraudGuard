@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from preprocessing import load_data, clean_data
-from feature_engineering import feature_engineering
+from feature_engineering import process_features
 from fraud_detection import train_model
 import pandas as pd
 
